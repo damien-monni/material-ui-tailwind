@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfigModule from "./tailwind.config.js";
+
+const {
+  Button,
+  MuiThemeProvider,
+  createMuiTheme,
+} = require("@material-ui/core");
+
+const tailwindConfig = resolveConfig(tailwindConfigModule);
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: tailwindConfig.theme.colors.primary.main,
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MuiThemeProvider theme={theme}>
+      <div>
+        <h1>Welcome!</h1>
+
+        <p>This is my MUI Tailwind website!</p>
+
+        <div>
+          <Button variant="contained" color="primary">
+            See more here
+          </Button>
+        </div>
+      </div>
+    </MuiThemeProvider>
   );
 }
 

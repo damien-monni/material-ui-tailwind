@@ -28,4 +28,17 @@ module.exports = {
 ⚠️ Notice the tailwind.config.js path after requiring tailwindcss.
 
 - Use tailwind resolveConfig utility to get the entire tailwind theme
-  and inject it into MUI (see `App.js`).
+  and inject it into MUI:
+
+```js
+// ./src/App.js
+const tailwindConfig = resolveConfig(tailwindConfigModule);
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: tailwindConfig.theme.colors.primary.main,
+    },
+  },
+});
+```

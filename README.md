@@ -8,7 +8,7 @@ creation function to inject Tailwind value into the MUI theme
 properties.
 
 - Install MUI
-- Follow the Tailwind install guide for Create React App using Craco
+- Follow the [Tailwind install guide for Create React App using Craco](https://tailwindcss.com/docs/guides/create-react-app)
 - `tailwind.config.js` needs to be in the `./src` folder to be imported
   into the React App and MUI theme. To do that, edit `craco.config.js` to:
 
